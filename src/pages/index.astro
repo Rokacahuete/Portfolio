@@ -1,57 +1,64 @@
 ---
 import Guy from "../components/Guy.astro";
 import Section from "../components/Section.astro";
+import SectionsContainer from "../components/SectionsContainer.astro";
 import Layout from "../Layout.astro";
 ---
 
 <Layout>
-	<Section title="A Propos">
-        <h2 id = "sss">Qui suis-je ?</h2>
-        <div>
-            Je suis un étudiant en deuxième année de BTS SIO, option SLAM, passionné par le développement web et la conception d'applications. J'aime imaginer, structurer et coder des projets qui résolvent de vrais problèmes.
-            Mon objectif est de continuer à concevoir et réaliser tout un tas d'applications fonctionnant entre elles, et de créer un réel écosystème.
-        </div>
-    </Section>
-    <Section>
-        <h1>Parcours</h1>
-        <div class = "text">
-            <h2>Mon parcours</h2>
-            <li> 2025-2026 : 2e année de BTS SIO au Lycée Geoffroy Saint-Hilaire d'Étampes</li>
-            Après une pause de deux ans, j'ai ressenti le besoin de finir mon apprentissage dans le développement web. L'expérience acquise à Isart m'a permis d'encore plus apprécier ce que je fais dans ce BTS.<br><br>
-            <li> 2023-2025 : Game Design & Programming à Isart DIGITAL à Paris</li>
-            Deux ans. C'est le temps passé à Isart. J'y ai beaucoup appris, de part les projets orientés jeux vidéo, à comprendre l'utilisateur, et à lui faire comprendre l'objectif d'une application. Je pense qu'il s'agit de la meilleure expérience pour réaliser les meilleures applications.<br><br>
-            <li> 2022-2023 : 1ere année de BTS SIO dans le même lycée</li>
-            En sortant du Bac, je savais que je voulais faire de la programmation. En attendant de pouvoir suivre la formation de mes rêves, le BTS SIO était la voie la plus évidente pour continuer ma passion.<br><br>
-            <li> 2022 : Bac général, options Maths et NSI</li>
-            S'il y a bien une étape importante dans ma vie, c'est le Bac, en particulier l'option NSI. C'est ici que j'ai découvert la programmation, et depuis, je ne peux plus m'en passer.<br><br>
-            <li> Stages et expériences :</li>
-            - 2025 : Brasserie Morel &gt; Réalisation d'un site web en HTML / CSS / JS<br>
-            - 2023 : O Fil Des Sens & MDA &gt; Réalisation de deux sites internet avec WordPress<br><br>
-        </div>
-    </Section>
-    <Section>
-        <h1>Projets</h1>
-        <div class="text">
-            <h2>Projets BTS SIO</h2>
-            <li> 2025 : GSH Social</li> C'est un réseau social complet, avec messagerie instantanée, posts, profils personnalisables et tant d'autres fonctionnalités.<br><br>
-            <li> 2023 : SIO Chat</li> Il s'agit d'une messagerie instantanée en JavaScript<br><br>
-            <h2>Projets Isart</h2>
-            <li> 2025 : Jeu de cartes</li> C'est un autre jeu réalisé en équipe de 10 personnes, où l'on doit choisir des cartes d'équipements après chaque combat, et survivre.<br><br>
-            <li> 2025 : Platformer</li> Mon plus gros projet. C'est un jeu de type parcours, avec tout un tas d'obstacles. Nous étions 12 sur ce projet, entre programmeurs, graphistes et sound designers.<br><br>
-            <li> 2024 : Sokoban</li> Il s'agit d'un jeu de puzzle réalisé en équipe de 5.<br><br>
-            <li> 2023 : Shmup</li> Mon premier jeu scolaire, des vagues d'ennemis apparaissent, il faut tous les éliminer.<br><br>
-            <h2>Projets personnels</h2>
-            <li> 2022 : RokaBot</li> Un bot Discord, servant à automatiser certaines tâches sur des serveurs.<br><br>
-            <li> 2021 : Uno</li> Une virtualisation du jeu de société, avec multijoueur intégré et/ou IA adverses.<br><br>
-            <li> 2020 : BurgerSnake</li> Une version améliorée du célèbre Snake.<br><br>
-        </div>
-    </Section>
-    <Section>
-        <h1>Contact</h1>
-        <div class="text">
-            • E-mail : <a style = "color: black" href = "mailto:brian.baur.pro@gmail.com">brian.baur.pro@gmail.com</a><br>
-            • LinkedIn : <a style = "color: black" href="https://www.linkedin.com/in/brian-baur-aaa53a252/">https://www.linkedin.com/in/brian-baur-aaa53a252/</a><br>
-            • GitHub : <a style = "color: black" href="https://github.com/Rokacahuete/">https://github.com/Rokacahuete/</a><br>
-        </div>
-    </Section>
+    <SectionsContainer>
+        <Section title="A Propos">
+            <h2 id = "sss">Qui suis-je ?</h2>
+            <div>
+                Je suis un étudiant en deuxième année de BTS SIO, option SLAM, passionné par le développement web et la conception d'applications. J'aime imaginer, structurer et coder des projets qui résolvent de vrais problèmes.
+                Mon objectif est de continuer à concevoir et réaliser tout un tas d'applications fonctionnant entre elles, et de créer un réel écosystème.
+            </div>
+        </Section>
+    </SectionsContainer>
+    <SectionsContainer>
+        <Section>
+            <h1>Parcours</h1>
+            <div class = "text">
+                <h2>Mon parcours</h2>
+                <li> 2025-2026 : 2e année de BTS SIO au Lycée Geoffroy Saint-Hilaire d'Étampes</li>
+                Après une pause de deux ans, j'ai ressenti le besoin de finir mon apprentissage dans le développement web. L'expérience acquise à Isart m'a permis d'encore plus apprécier ce que je fais dans ce BTS.<br><br>
+                <li> 2023-2025 : Game Design & Programming à Isart DIGITAL à Paris</li>
+                Deux ans. C'est le temps passé à Isart. J'y ai beaucoup appris, de part les projets orientés jeux vidéo, à comprendre l'utilisateur, et à lui faire comprendre l'objectif d'une application. Je pense qu'il s'agit de la meilleure expérience pour réaliser les meilleures applications.<br><br>
+                <li> 2022-2023 : 1ere année de BTS SIO dans le même lycée</li>
+                En sortant du Bac, je savais que je voulais faire de la programmation. En attendant de pouvoir suivre la formation de mes rêves, le BTS SIO était la voie la plus évidente pour continuer ma passion.<br><br>
+                <li> 2022 : Bac général, options Maths et NSI</li>
+                S'il y a bien une étape importante dans ma vie, c'est le Bac, en particulier l'option NSI. C'est ici que j'ai découvert la programmation, et depuis, je ne peux plus m'en passer.<br><br>
+                <li> Stages et expériences :</li>
+                - 2025 : Brasserie Morel &gt; Réalisation d'un site web en HTML / CSS / JS<br>
+                - 2023 : O Fil Des Sens & MDA &gt; Réalisation de deux sites internet avec WordPress<br><br>
+            </div>
+        </Section>
+        <Section>
+            <h1>Projets</h1>
+            <div class="text">
+                <h2>Projets BTS SIO</h2>
+                <li> 2025 : GSH Social</li> C'est un réseau social complet, avec messagerie instantanée, posts, profils personnalisables et tant d'autres fonctionnalités.<br><br>
+                <li> 2023 : SIO Chat</li> Il s'agit d'une messagerie instantanée en JavaScript<br><br>
+                <h2>Projets Isart</h2>
+                <li> 2025 : Jeu de cartes</li> C'est un autre jeu réalisé en équipe de 10 personnes, où l'on doit choisir des cartes d'équipements après chaque combat, et survivre.<br><br>
+                <li> 2025 : Platformer</li> Mon plus gros projet. C'est un jeu de type parcours, avec tout un tas d'obstacles. Nous étions 12 sur ce projet, entre programmeurs, graphistes et sound designers.<br><br>
+                <li> 2024 : Sokoban</li> Il s'agit d'un jeu de puzzle réalisé en équipe de 5.<br><br>
+                <li> 2023 : Shmup</li> Mon premier jeu scolaire, des vagues d'ennemis apparaissent, il faut tous les éliminer.<br><br>
+                <h2>Projets personnels</h2>
+                <li> 2022 : RokaBot</li> Un bot Discord, servant à automatiser certaines tâches sur des serveurs.<br><br>
+                <li> 2021 : Uno</li> Une virtualisation du jeu de société, avec multijoueur intégré et/ou IA adverses.<br><br>
+                <li> 2020 : BurgerSnake</li> Une version améliorée du célèbre Snake.<br><br>
+            </div>
+        </Section>
+    </SectionsContainer>
+    <SectionsContainer>
+        <Section>
+            <h1>Contact</h1>
+            <div class="text">
+                • E-mail : <a style = "color: black" href = "mailto:brian.baur.pro@gmail.com">brian.baur.pro@gmail.com</a><br>
+                • LinkedIn : <a style = "color: black" href="https://www.linkedin.com/in/brian-baur-aaa53a252/">https://www.linkedin.com/in/brian-baur-aaa53a252/</a><br>
+                • GitHub : <a style = "color: black" href="https://github.com/Rokacahuete/">https://github.com/Rokacahuete/</a><br>
+            </div>
+        </Section>
+    </SectionsContainer>
 </Layout>

@@ -29,10 +29,7 @@
         if (!header || !content) return;
 
         const height = header.offsetHeight;
-        content.style.paddingTop = `calc(${height}px + 30px)`;
-
-        console.log(height);
-        
+        content.style.paddingTop = `calc(${height}px + 10px)`;
     }
 
     window.addEventListener("load", offsetHeader);
