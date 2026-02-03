@@ -2,21 +2,39 @@
 
 ---
 
-<div class="container glass centered">
+<div class="header glass centered" id="header">
     Portfolio - Brian
 </div>
 
 <style>
-    .container {
+    .header {
+        position: fixed;
+        z-index: 1;
         background-color: var(--main-color);
-        width: 100%;
+        width: calc(100% - 31px);
 
         font-family: 'copyduck';
         font-size: 50px;
 
         border: 2px solid var(--border-color);
         border-radius: 10px;
-        margin-bottom: 30px;
         padding-block: 20px;
     }
 </style>
+
+<script>
+    function offsetHeader() {
+        const header = document.getElementById("header");
+        const content = document.querySelector("main");
+        if (!header || !content) return;
+
+        const height = header.offsetHeight;
+        content.style.paddingTop = `calc(${height}px + 30px)`;
+
+        console.log(height);
+        
+    }
+
+    window.addEventListener("load", offsetHeader);
+    window.addEventListener("resize", offsetHeader);
+</script>
