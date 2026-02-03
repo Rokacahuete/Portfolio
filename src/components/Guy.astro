@@ -2,17 +2,20 @@
 export interface Props {
     size?: number | string;
     scale?: number | string;
-    color?: 'red' | 'blue' | 'green' | 'yellow';
+    color?: 'red' | 'yellow' | 'blue' | 'green' | 'orange' | 'purple';
     shape?: 'square' | 'circle' | 'rectangle' | 'capsule';
     target?: string;
+    id?: string;
 }
-const { size, scale, color, shape, target } = Astro.props;
+const { size, scale, color, shape, target, id } = Astro.props;
 ---
 
-<div class=`guy ${color ?? "red"} ${shape ?? "circle"}` data-target={target} style=`--size: ${size ?? "150px"}; --scale: ${scale};` id="guy">
-    <div class = "eye"><div class = "pupil"></div></div>
-    <div class = "eye"><div class = "pupil"></div></div>
-    <div class = "mouth"></div>
+<div class="guy-wrapper" style=`--size: ${size ?? "150px"};`>
+    <div class=`guy ${color ?? "red"} ${shape ?? "circle"}` data-target={target} style=`--size: ${size ?? "150px"}; --scale: ${scale};` id={id ?? ""}>
+        <div class = "eye"><div class = "pupil"></div></div>
+        <div class = "eye"><div class = "pupil"></div></div>
+        <div class = "mouth"></div>
+    </div>
 </div>
 
 <style>
@@ -21,7 +24,7 @@ const { size, scale, color, shape, target } = Astro.props;
         --pupil-color: black;
         --mouth-color: #ff4f4fa8;
 
-        position: relative;
+        position: absolute;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -29,8 +32,8 @@ const { size, scale, color, shape, target } = Astro.props;
         border-radius: 20px;
         width: var(--size);
         height: var(--size);
-        transform: scale(var(--scale));
 
+        transform: scale(var(--scale));
         transition: transform 0.2s;
         margin: 20px 5px 5px 5px;
     }
@@ -119,6 +122,8 @@ const { size, scale, color, shape, target } = Astro.props;
     .yellow{ background-color: #ffed70; }
     .blue{ background-color: #70a0ff; }
     .green{ background-color: #70ff70; }
+    .orange{ background-color: #ff9f46; }
+    .purple{ background-color: #8e44c0; }
 
     /* Forme */
     .circle{

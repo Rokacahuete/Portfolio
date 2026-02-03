@@ -16,7 +16,7 @@ import Layout from "../Layout.astro";
         </Section>
     </SectionsContainer>
     <SectionsContainer>
-        <Section>
+        <Section style="text-align: left;">
             <h1>Parcours</h1>
             <div class = "text">
                 <h2>Mon parcours</h2>
@@ -33,7 +33,7 @@ import Layout from "../Layout.astro";
                 - 2023 : O Fil Des Sens & MDA &gt; Réalisation de deux sites internet avec WordPress<br><br>
             </div>
         </Section>
-        <Section>
+        <Section style="text-align: left;">
             <h1>Projets</h1>
             <div class="text">
                 <h2>Projets BTS SIO</h2>
@@ -44,10 +44,22 @@ import Layout from "../Layout.astro";
                 <li> 2025 : Platformer</li> Mon plus gros projet. C'est un jeu de type parcours, avec tout un tas d'obstacles. Nous étions 12 sur ce projet, entre programmeurs, graphistes et sound designers.<br><br>
                 <li> 2024 : Sokoban</li> Il s'agit d'un jeu de puzzle réalisé en équipe de 5.<br><br>
                 <li> 2023 : Shmup</li> Mon premier jeu scolaire, des vagues d'ennemis apparaissent, il faut tous les éliminer.<br><br>
-                <h2>Projets personnels</h2>
-                <li> 2022 : RokaBot</li> Un bot Discord, servant à automatiser certaines tâches sur des serveurs.<br><br>
-                <li> 2021 : Uno</li> Une virtualisation du jeu de société, avec multijoueur intégré et/ou IA adverses.<br><br>
-                <li> 2020 : BurgerSnake</li> Une version améliorée du célèbre Snake.<br><br>
+            </div>
+        </Section>
+    </SectionsContainer>
+    <SectionsContainer>
+        <Section class="bgs-container">
+            <h2>Projets personnels</h2>
+            <li> 2022 : RokaBot</li> Un bot Discord, servant à automatiser certaines tâches sur des serveurs.<br><br>
+            <li> 2021 : Uno</li> Une virtualisation du jeu de société, avec multijoueur intégré et/ou IA adverses.<br><br>
+            <li> 2020 : BurgerSnake</li> Une version améliorée du célèbre Snake.<br><br>
+            <div class="" id="bgs">
+                <Guy scale=".3" color="red" shape="circle" />
+                <Guy scale=".3" color="orange" shape="circle" />
+                <Guy scale=".3" color="yellow" shape="circle" />
+                <Guy scale=".3" color="green" shape="circle" />
+                <Guy scale=".3" color="blue" shape="circle" />
+                <Guy scale=".3" color="purple" shape="circle" />
             </div>
         </Section>
     </SectionsContainer>
@@ -62,3 +74,30 @@ import Layout from "../Layout.astro";
         </Section>
     </SectionsContainer>
 </Layout>
+
+<style>
+    :global(.page .bgs-container) {
+        padding: 50px;
+    }
+
+    @keyframes bgs-move {
+        0%   { top: calc(-25% + 30px); left: 0%; }
+        25%  { top: calc(-25% + 30px); left: calc(100% - 150px); }
+        50%  { top: calc(50% + 30px); left: calc(100% - 150px); }
+        75%  { top: calc(50% + 30px); left: 0%; }
+        100% { top: calc(-25% + 30px); left: 0%;}
+    }
+    :global(.bgs-container .guy-wrapper) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        animation: bgs-move 8s linear infinite;
+    }
+</style>
+
+<script>
+    const guys = document.getElementById("bgs")?.querySelectorAll<HTMLElement>(".guy-wrapper") ?? [];
+    for (let i = 0; i < guys.length; i++) {
+        guys[i].style.animationDelay = `-${i * .35}s`;
+    }
+</script>
