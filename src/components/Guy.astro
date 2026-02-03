@@ -138,10 +138,14 @@ const { size, color, shape, target } = Astro.props;
     mouseTarget.style = "position: fixed; pointer-events: none; width: 0px; height: 0px;"
     document.body.appendChild(mouseTarget);
 
-    document.addEventListener("mousemove", (e) => {
-        mouseTarget.style.left = `${e.clientX}px`;
-        mouseTarget.style.top = `${e.clientY}px`;
-    });
+    function UpdateTargetPos(x: number, y: number) {
+        mouseTarget.style.left = `${x}px`;
+        mouseTarget.style.top = `${y}px`;
+    }
+
+    document.addEventListener("mousemove", (e) => UpdateTargetPos(e.clientX, e.clientY));
+    document.addEventListener("touchstart", (e) => UpdateTargetPos(e.touches[0].clientX, e.touches[0].clientY));
+    document.addEventListener("touchmove", (e) => UpdateTargetPos(e.touches[0].clientX, e.touches[0].clientY));
 </script>
 
 <script>
