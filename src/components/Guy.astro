@@ -1,0 +1,212 @@
+---
+export interface Props {
+    size?: number | string;
+    color?: 'red' | 'blue' | 'green' | 'yellow';
+    shape?: 'square' | 'circle' | 'rectangle' | 'capsule';
+    target?: string;
+}
+const { size, color, shape, target } = Astro.props;
+---
+
+<div class=`guy ${color ?? "red"} ${shape ?? "circle"}` data-target={target} style=`--size: ${size ?? "150px"};` id="guy">
+    <div class = "eye"><div class = "pupil"></div></div>
+    <div class = "eye"><div class = "pupil"></div></div>
+    <div class = "mouth"></div>
+</div>
+
+<style>
+    .guy{
+        --border-color: black;
+        --pupil-color: black;
+        --mouth-color: #ff4f4fa8;
+
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid var(--border-color);
+        border-radius: 20px;
+        width: var(--size);
+        height: var(--size);
+        transition: transform 0.2s;
+        margin: 20px 5px 5px 5px;
+    }
+    .guy:hover{
+        transform: scale(1.05);
+    }
+
+    /* Eyes */
+    .eye{
+        position: relative;
+        background-color: white;
+        border-radius: 50%;
+        margin: 0 10px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pupil{
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background-color: var(--pupil-color);
+        border-radius: 50%;
+    }
+    .guy:hover .pupil{
+        width: 25px;
+        height: 25px;
+    }
+
+    /* Mouth */
+    .mouth{
+        position: absolute;
+        border-bottom-left-radius: 13px;
+        border-bottom-right-radius: 13px;
+        width: 30px;
+        height: 15px;
+        background-color: var(--mouth-color);
+        transform: translateY(40px);
+        transition: border-radius .2s, width .2s, height .2s;
+    }
+    .guy:hover .mouth{
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        width: 50px;
+        height: 25px;
+    }
+
+    /* Sleeping */
+    .sleep .eye {
+        background: none;
+        border-bottom: 3px solid var(--border-color);
+        border-radius: 0;
+        height: 0;
+    }
+
+    .sleep .pupil {
+        opacity: 0;
+    }
+
+    .sleep .mouth{
+        border-radius: 50%;
+    }
+
+    /* Awaking */
+    .awake .eye {
+        background: white;
+        border-radius: 50%;
+        height: 40px;
+        transition: all .5s;
+    }
+
+    .awake .pupil {
+        opacity: 1;
+        transition: all .2s, opacity .5s;
+    }
+
+    /* Couleurs */
+    .red{ background-color: #ff7070; }
+    .yellow{ background-color: #ffed70; }
+    .blue{ background-color: #70a0ff; }
+    .green{ background-color: #70ff70; }
+
+    /* Forme */
+    .circle{
+        border-radius: 50%;
+    }
+    .rectangle{
+        width: calc(var(--size) * 1.5);
+    }
+    .capsule{
+        height: calc(var(--size) * 1.2);
+        width: calc(var(--size) / 1.2);
+        border-radius: 100px;
+    }
+    .capsule>.eye{
+        transform: translateY(calc(var(--size) * -.2));
+    }
+</style>
+
+<script>
+    const mouseTarget = document.createElement("div");
+    mouseTarget.id = "mouse";
+    mouseTarget.style = "position: fixed; pointer-events: none; width: 0px; height: 0px;"
+    document.body.appendChild(mouseTarget);
+
+    document.addEventListener("mousemove", (e) => {
+        mouseTarget.style.left = `${e.clientX}px`;
+        mouseTarget.style.top = `${e.clientY}px`;
+    });
+</script>
+
+<script>
+    const MAX_DISTANCE = 10;
+    const ANGLE = 100;
+
+    const guys:NodeListOf<HTMLElement> = document.querySelectorAll(".guy");
+
+    let hoveredGuy: HTMLElement | null = null;
+    guys.forEach(b => {
+        b.addEventListener("mouseenter", () => hoveredGuy = b);
+        b.addEventListener("mouseleave", () => hoveredGuy = null);
+    });
+
+    function UpdatePupils() {
+        guys.forEach(guy => {
+            let target = document.getElementById(guy.dataset.target ?? "mouse")?.getBoundingClientRect();
+            guy.querySelectorAll<HTMLElement>(".pupil").forEach(pupil => {
+                if (!target || guy === hoveredGuy) return pupil.style.transform = `translate(0px, 0px)`;
+
+                let eye:HTMLElement | null = pupil.parentElement;
+                let rect = eye?.getBoundingClientRect();
+                if (!rect) return;
+
+                let angleX = target.x - rect.left - 15;
+                let angleY = target.y - rect.top;
+
+                let distance = Math.min(MAX_DISTANCE, Math.hypot(angleX, angleY) / MAX_DISTANCE);
+                let dx = Math.max(- MAX_DISTANCE, Math.min(MAX_DISTANCE, (angleX / ANGLE) * distance));
+                let dy = Math.max(- MAX_DISTANCE, Math.min(MAX_DISTANCE, (angleY / ANGLE) * distance));
+                pupil.style.transform = `translate(${dx}px, ${dy}px)`;
+            });
+        });
+
+        requestAnimationFrame(UpdatePupils);
+    }
+    UpdatePupils();
+
+// document.querySelectorAll(".bonhomme").forEach(b => {
+//   b.addEventListener("mouseenter", () => {
+//     b.classList.remove("sleep");
+//     b.classList.add("awake");
+//   });
+// });
+
+// document.addEventListener("visibilitychange", () => {
+//   const bonshommes = document.querySelectorAll(".bonhomme");
+
+//   if (document.hidden) {
+//     setFavicon(SLEEP_ICON);
+//   } else {
+//     bonshommes.forEach(b => {
+//       b.classList.remove("awake");
+//       b.classList.add("sleep");
+//     });
+
+//     setTimeout(() => {
+//       setFavicon(AWAKE_ICON);
+//     }, 2_000);
+//     setTimeout(() => {
+//       bonshommes.forEach(b => {
+//         b.classList.remove("sleep");
+//         b.classList.add("awake");
+//       });
+//     }, 3_000);
+//   }
+// });
+</script>
