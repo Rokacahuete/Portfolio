@@ -1,14 +1,15 @@
 ---
 export interface Props {
     size?: number | string;
+    scale?: number | string;
     color?: 'red' | 'blue' | 'green' | 'yellow';
     shape?: 'square' | 'circle' | 'rectangle' | 'capsule';
     target?: string;
 }
-const { size, color, shape, target } = Astro.props;
+const { size, scale, color, shape, target } = Astro.props;
 ---
 
-<div class=`guy ${color ?? "red"} ${shape ?? "circle"}` data-target={target} style=`--size: ${size ?? "150px"};` id="guy">
+<div class=`guy ${color ?? "red"} ${shape ?? "circle"}` data-target={target} style=`--size: ${size ?? "150px"}; --scale: ${scale};` id="guy">
     <div class = "eye"><div class = "pupil"></div></div>
     <div class = "eye"><div class = "pupil"></div></div>
     <div class = "mouth"></div>
@@ -28,11 +29,13 @@ const { size, color, shape, target } = Astro.props;
         border-radius: 20px;
         width: var(--size);
         height: var(--size);
+        transform: scale(var(--scale));
+
         transition: transform 0.2s;
         margin: 20px 5px 5px 5px;
     }
     .guy:hover{
-        transform: scale(1.05);
+        transform: scale(calc(var(--scale) * 1.05));
     }
 
     /* Eyes */
@@ -54,6 +57,8 @@ const { size, color, shape, target } = Astro.props;
         height: 15px;
         background-color: var(--pupil-color);
         border-radius: 50%;
+
+        transition: width .1s, height .1s;
     }
     .guy:hover .pupil{
         width: 25px;
