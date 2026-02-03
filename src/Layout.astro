@@ -1,5 +1,6 @@
 ---
 import Background from "./components/Background.astro";
+import Header from "./components/Header.astro";
 ---
 
 <!doctype html>
@@ -10,27 +11,58 @@ import Background from "./components/Background.astro";
 		<title>Portfolio - Brian</title>
 	</head>
 	<body>
-		<Background />
-		<slot />
+		<div class="page centered">
+			<Background />
+			<header><Header /></header>
+			<main class="content"><slot /></main>
+			<footer></footer>
+		</div>
 	</body>
 </html>
 
 <style>
 	/* Colors */
-	global(*) {
+	:global(*) {
 		--top-color: rgba(255, 0, 0, 0.438);
 		--section-color-1: rgba(255, 123, 0, 0.247);
 		--section-color-2:  rgba(230, 40, 40, 0.6);
 		--title-color: rgba(255, 0, 0, 0.274);
 		--border-color: black;
-
 		color: white;
+	}
+
+	:global(.centered) {
+		display: flex;
+		align-items: center;
+		text-align: center;
+		flex-direction: column;
+	}
+
+	:global(.glass) {
+        box-shadow : 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter : blur(7px);
+        -webkit-backdrop-filter : blur(7px);
 	}
 
 	html,
 	body {
-		margin: 0;
-		width: 100%;
+		overflow-x: hidden;
 		height: 100%;
+		margin: 0;
+	}
+
+	header, main, footer {
+		width: 100%;
+	}
+
+	.page {
+		padding: 8px;
+		min-height: calc(100vh - 16px);
+		display: flex;
+		flex-direction: column;
+	}
+
+	.content {
+		flex: 1;
 	}
 </style>
