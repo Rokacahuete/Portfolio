@@ -11,7 +11,7 @@ export interface Props {
 const { size, scale, color, shape, target, style, id } = Astro.props;
 ---
 
-<div class="guy-wrapper" style=`--size: ${size ?? "150px"}; ${style ?? ""}`>
+<div class="guy-wrapper" style=`--size: ${size ?? "150px"}; ${style ?? ""}` id={id ?? ""}>
     <div class=`guy ${color ?? "red"} ${shape ?? "circle"}` data-target={target} style=`--size: ${size ?? "150px"}; --scale: ${scale};` id={id ?? ""}>
         <div class = "eye"><div class = "pupil"></div></div>
         <div class = "eye"><div class = "pupil"></div></div>
@@ -49,6 +49,7 @@ const { size, scale, color, shape, target, style, id } = Astro.props;
     }
     .guy:hover{
         transform: scale(calc(var(--scale) * 1.05));
+        z-index: 1;
     }
 
     /* Eyes */
@@ -144,7 +145,7 @@ const { size, scale, color, shape, target, style, id } = Astro.props;
     }
     .capsule{
         height: calc(var(--size) * 1.2);
-        width: calc(var(--size) / 1.2);
+        width: 125px;
         border-radius: 100px;
     }
     .capsule>.eye{
