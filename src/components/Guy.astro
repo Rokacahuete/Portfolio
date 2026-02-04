@@ -24,6 +24,7 @@ const { size, scale, color, shape, target, id } = Astro.props;
     }
     :global(.guy-wrapper:has(.guy:hover)) {
         animation-play-state: paused;
+        z-index: 1;
     }
     
     .guy{
