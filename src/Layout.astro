@@ -2,6 +2,9 @@
 import Background from "./components/Background.astro";
 import Header from "./components/Header.astro";
 import Footer from "./components/Footer.astro";
+
+import AwakeIcon from './assets/High-Voltage.png';
+import SleepIcon from './assets/Zzz.png';
 ---
 
 <!doctype html>
@@ -10,6 +13,7 @@ import Footer from "./components/Footer.astro";
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<title>Portfolio - Brian</title>
+		<link id="dynamic-favicon" rel="icon" type="image/png" href={AwakeIcon.src} data-awake-icon={AwakeIcon.src} data-sleep-icon={SleepIcon.src}>
 	</head>
 	<body>
 		<div class="page centered">
@@ -69,3 +73,18 @@ import Footer from "./components/Footer.astro";
 		flex: 1;
 	}
 </style>
+
+<script>
+    const favicon = document.getElementById("dynamic-favicon") as HTMLLinkElement;
+	const awakeIcon = favicon.dataset.awakeIcon, sleepIcon = favicon.dataset.sleepIcon;
+
+	function setFavicon(path: string | undefined) {
+		if (favicon && path) favicon.href = path;
+	}
+	setFavicon(awakeIcon);
+
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) setFavicon(sleepIcon);
+        else setTimeout(() => setFavicon(awakeIcon), 2_000);
+    });
+</script>

@@ -224,3 +224,30 @@ const { size, scale, color, shape, target, id } = Astro.props;
 //   }
 // });
 </script>
+
+<script>
+    document.querySelectorAll(".guy").forEach(guy => {
+        guy.addEventListener("mouseenter", () => {
+            guy.classList.remove("sleep");
+            guy.classList.add("awake");
+        });
+    });
+</script>
+
+<script>
+    const guys:NodeListOf<HTMLElement> = document.querySelectorAll(".guy");
+
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            guys.forEach(guy => {
+                guy.classList.remove("awake");
+                guy.classList.add("sleep");
+            });
+        } else setTimeout(() => {
+            guys.forEach(guy => {
+                guy.classList.remove("sleep");
+                guy.classList.add("awake");
+            });
+        }, 3_000);
+    });
+</script>
