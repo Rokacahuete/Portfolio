@@ -19,6 +19,13 @@ const { size, scale, color, shape, target, id } = Astro.props;
 </div>
 
 <style>
+    :global(.guy-wrapper:has(.guy.sleep)) {
+        animation-play-state: paused;
+    }
+    :global(.guy-wrapper:has(.guy:hover)) {
+        animation-play-state: paused;
+    }
+    
     .guy{
         --border-color: black;
         --pupil-color: black;
