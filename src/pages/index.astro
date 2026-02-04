@@ -6,6 +6,8 @@ import Layout from "../Layout.astro";
 ---
 
 <Layout>
+    <Guy shape="square" color="blue" id="top-guy-1" />
+    <Guy shape="circle" color="orange" id="top-guy-2" />
     <SectionsContainer>
         <Section title="A Propos">
             <h2 id = "sss">Qui suis-je ?</h2>
@@ -74,6 +76,31 @@ import Layout from "../Layout.astro";
         </Section>
     </SectionsContainer>
 </Layout>
+
+<style>
+    :global(#top-guy-1) {
+        left: 20%;
+        position: fixed;
+        pointer-events: none;
+    }
+
+    :global(#top-guy-2) {
+        left: calc(80% - 150px);
+        position: fixed;
+        pointer-events: none;
+    }
+    
+    @media (max-width: 510px) {
+        :global(#top-guy-1) {
+            left: calc(50% - 75px);
+            pointer-events: none;
+        }
+
+        :global(#top-guy-2) {
+            display: none;
+        }
+    }
+</style>
 
 <style>
     :global(.page .bgs-container) {

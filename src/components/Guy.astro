@@ -5,12 +5,13 @@ export interface Props {
     color?: 'red' | 'yellow' | 'blue' | 'green' | 'orange' | 'purple';
     shape?: 'square' | 'circle' | 'rectangle' | 'capsule';
     target?: string;
+    style?: string;
     id?: string;
 }
-const { size, scale, color, shape, target, id } = Astro.props;
+const { size, scale, color, shape, target, style, id } = Astro.props;
 ---
 
-<div class="guy-wrapper" style=`--size: ${size ?? "150px"};`>
+<div class="guy-wrapper" style=`--size: ${size ?? "150px"}; ${style ?? ""}`>
     <div class=`guy ${color ?? "red"} ${shape ?? "circle"}` data-target={target} style=`--size: ${size ?? "150px"}; --scale: ${scale};` id={id ?? ""}>
         <div class = "eye"><div class = "pupil"></div></div>
         <div class = "eye"><div class = "pupil"></div></div>
@@ -40,6 +41,7 @@ const { size, scale, color, shape, target, id } = Astro.props;
         border-radius: 20px;
         width: var(--size);
         height: var(--size);
+        overflow: hidden;
 
         transform: scale(var(--scale));
         transition: transform 0.2s;
