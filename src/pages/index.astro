@@ -54,12 +54,12 @@ import Layout from "../Layout.astro";
             <li> 2021 : Uno</li> Une virtualisation du jeu de société, avec multijoueur intégré et/ou IA adverses.<br><br>
             <li> 2020 : BurgerSnake</li> Une version améliorée du célèbre Snake.<br><br>
             <div class="" id="bgs">
-                <Guy scale=".3" color="red" shape="circle" />
-                <Guy scale=".3" color="orange" shape="circle" />
-                <Guy scale=".3" color="yellow" shape="circle" />
-                <Guy scale=".3" color="green" shape="circle" />
-                <Guy scale=".3" color="blue" shape="circle" />
-                <Guy scale=".3" color="purple" shape="circle" />
+                <Guy scale=".3" color="red" shape="square" />
+                <Guy scale=".3" color="orange" shape="square" />
+                <Guy scale=".3" color="yellow" shape="square" />
+                <Guy scale=".3" color="green" shape="square" />
+                <Guy scale=".3" color="blue" shape="square" />
+                <Guy scale=".3" color="purple" shape="square" />
             </div>
         </Section>
     </SectionsContainer>
@@ -98,6 +98,6 @@ import Layout from "../Layout.astro";
 <script>
     const guys = document.getElementById("bgs")?.querySelectorAll<HTMLElement>(".guy-wrapper") ?? [];
     for (let i = 0; i < guys.length; i++) {
-        guys[i].style.animationDelay = `-${i * .35}s`;
+        guys[i].style.animationDelay = `-${8 - i * .35}s`;
     }
 </script>
