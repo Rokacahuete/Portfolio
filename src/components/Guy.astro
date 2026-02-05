@@ -11,8 +11,8 @@ export interface Props {
 const { size, scale, color, shape, target, style, id } = Astro.props;
 ---
 
-<div class="guy-wrapper" style=`--size: ${size ?? "150px"}; ${style ?? ""}`>
-    <div class=`guy ${color ?? "red"} ${shape ?? "circle"}` data-target={target} style=`--size: ${size ?? "150px"}; --scale: ${scale};` id={id ?? ""}>
+<div class="guy-wrapper" style=`--size: ${size ?? "150px"};`>
+    <div class=`guy ${color ?? "red"} ${shape ?? "circle"}` data-target={target} style=`--size: ${size ?? "150px"}; --scale: ${scale}; ${style ?? ""}` id={id ?? ""}>
         <div class = "eye"><div class = "pupil"></div></div>
         <div class = "eye"><div class = "pupil"></div></div>
         <div class = "mouth"></div>
@@ -141,7 +141,8 @@ const { size, scale, color, shape, target, style, id } = Astro.props;
         border-radius: 50%;
     }
     .rectangle{
-        width: calc(var(--size) * 1.5);
+        height: 125px;
+        width: var(--size);
     }
     .capsule{
         height: calc(var(--size) * 1.2);
@@ -204,36 +205,6 @@ const { size, scale, color, shape, target, style, id } = Astro.props;
         requestAnimationFrame(UpdatePupils);
     }
     UpdatePupils();
-
-// document.querySelectorAll(".bonhomme").forEach(b => {
-//   b.addEventListener("mouseenter", () => {
-//     b.classList.remove("sleep");
-//     b.classList.add("awake");
-//   });
-// });
-
-// document.addEventListener("visibilitychange", () => {
-//   const bonshommes = document.querySelectorAll(".bonhomme");
-
-//   if (document.hidden) {
-//     setFavicon(SLEEP_ICON);
-//   } else {
-//     bonshommes.forEach(b => {
-//       b.classList.remove("awake");
-//       b.classList.add("sleep");
-//     });
-
-//     setTimeout(() => {
-//       setFavicon(AWAKE_ICON);
-//     }, 2_000);
-//     setTimeout(() => {
-//       bonshommes.forEach(b => {
-//         b.classList.remove("sleep");
-//         b.classList.add("awake");
-//       });
-//     }, 3_000);
-//   }
-// });
 </script>
 
 <script>

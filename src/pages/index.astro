@@ -9,15 +9,16 @@ import Layout from "../Layout.astro";
 ---
 
 <Layout>
-    <Guy shape="square" color="blue" id="top-guy-1" />
+    <Guy shape="square" color="green" id="top-guy-1" />
     <Guy shape="circle" color="orange" id="top-guy-2" />
     <SectionsContainer>
         <Section>
-            <Title>A Propos</Title>
+            <Title>A Propos de moi</Title>
             <SousTitre>Qui suis-je ?</SousTitre>
             <Text>
-                Je suis un étudiant en deuxième année de BTS SIO, option SLAM, passionné par le développement web et la conception d'applications. J'aime imaginer, structurer et coder des projets qui résolvent de vrais problèmes.
-                Mon objectif est de continuer à concevoir et réaliser tout un tas d'applications fonctionnant entre elles, et de créer un réel écosystème.
+                Bonjour. Je suis Brian.<br>
+                Je suis passionné par la programmation, depuis maintenant plusieurs années. J'aime imaginer et structurer des projets qui résolvent de vrais problèmes... ou pas, tant que je peux me chalenger !<br>
+                Je vous invite, via ce présent portfolio, à découvrir mon parcours, mon univers, et qui je suis.<br>
             </Text>
         </Section>
     </SectionsContainer>
@@ -27,6 +28,27 @@ import Layout from "../Layout.astro";
                 <Guy shape="capsule" size="300px" color="blue" target="ball" id="player-1" />
                 <Guy shape="circle" color="yellow" scale=".2" id="ball" />
                 <Guy shape="capsule" size="300px" color="red" target="ball" id="player-2" />
+            </div>
+        </Section>
+    </SectionsContainer>
+    <SectionsContainer>
+        <Section>
+            <Title>Mes competences</Title>
+            <SousTitre>Langages de programmation</SousTitre>
+            <div class="langages-container">
+                <div class="langage">Python</div>
+                <div class="langage">Java</div>
+                <div class="langage">JavaScript</div>
+                <div class="langage">HTML</div>
+                <div class="langage">CSS</div>
+                <div class="langage">PHP</div>
+                <div class="langage">Bash</div>
+                <div class="langage">PowerShell</div>
+                <div class="langage">C#</div>
+                <div class="langage">C++</div>
+                <div class="langage">Brainfuck</div>
+                <div class="langage">Vue</div>
+                <div class="langage">SQL</div>
             </div>
         </Section>
     </SectionsContainer>
@@ -167,6 +189,14 @@ import Layout from "../Layout.astro";
 
         animation: player-y 2s linear infinite alternate;
         animation-delay: 2.5s;
+    }
+</style>
+
+<!-- Skills -->
+<style>
+    .langages-container {
+        display: flex;
+        gap: 20px
     }
 </style>
 
