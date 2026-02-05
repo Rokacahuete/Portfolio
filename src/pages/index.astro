@@ -2,6 +2,9 @@
 import Guy from "../components/Guy.astro";
 import Section from "../components/Section.astro";
 import SectionsContainer from "../components/SectionsContainer.astro";
+import Title from "../components/Title.astro";
+import SousTitre from "../components/SousTitre.astro";
+import Text from "../components/Text.astro";
 import Layout from "../Layout.astro";
 ---
 
@@ -9,12 +12,13 @@ import Layout from "../Layout.astro";
     <Guy shape="square" color="blue" id="top-guy-1" />
     <Guy shape="circle" color="orange" id="top-guy-2" />
     <SectionsContainer>
-        <Section title="A Propos">
-            <h2 id = "sss">Qui suis-je ?</h2>
-            <div>
+        <Section>
+            <Title>A Propos</Title>
+            <SousTitre>Qui suis-je ?</SousTitre>
+            <Text>
                 Je suis un étudiant en deuxième année de BTS SIO, option SLAM, passionné par le développement web et la conception d'applications. J'aime imaginer, structurer et coder des projets qui résolvent de vrais problèmes.
                 Mon objectif est de continuer à concevoir et réaliser tout un tas d'applications fonctionnant entre elles, et de créer un réel écosystème.
-            </div>
+            </Text>
         </Section>
     </SectionsContainer>
     <SectionsContainer>
@@ -35,9 +39,9 @@ import Layout from "../Layout.astro";
     </SectionsContainer>
     <SectionsContainer>
         <Section style="text-align: left;">
-            <h1>Parcours</h1>
-            <div class = "text">
-                <h2>Mon parcours</h2>
+            <Title>Parcours</Title>
+            <SousTitre>Mon parcours</SousTitre>
+            <Text>
                 <li> 2025-2026 : 2e année de BTS SIO au Lycée Geoffroy Saint-Hilaire d'Étampes</li>
                 Après une pause de deux ans, j'ai ressenti le besoin de finir mon apprentissage dans le développement web. L'expérience acquise à Isart m'a permis d'encore plus apprécier ce que je fais dans ce BTS.<br><br>
                 <li> 2023-2025 : Game Design & Programming à Isart DIGITAL à Paris</li>
@@ -49,28 +53,30 @@ import Layout from "../Layout.astro";
                 <li> Stages et expériences :</li>
                 - 2025 : Brasserie Morel &gt; Réalisation d'un site web en HTML / CSS / JS<br>
                 - 2023 : O Fil Des Sens & MDA &gt; Réalisation de deux sites internet avec WordPress<br><br>
-            </div>
+            </Text>
         </Section>
         <Section style="text-align: left;">
-            <h1>Projets</h1>
-            <div class="text">
-                <h2>Projets BTS SIO</h2>
+            <Title>Projets</Title>
+            <SousTitre>Projets BTS SIO</SousTitre>
+            <Text>
                 <li> 2025 : GSH Social</li> C'est un réseau social complet, avec messagerie instantanée, posts, profils personnalisables et tant d'autres fonctionnalités.<br><br>
                 <li> 2023 : SIO Chat</li> Il s'agit d'une messagerie instantanée en JavaScript<br><br>
-                <h2>Projets Isart</h2>
+                <SousTitre>Projets Isart</SousTitre>
                 <li> 2025 : Jeu de cartes</li> C'est un autre jeu réalisé en équipe de 10 personnes, où l'on doit choisir des cartes d'équipements après chaque combat, et survivre.<br><br>
                 <li> 2025 : Platformer</li> Mon plus gros projet. C'est un jeu de type parcours, avec tout un tas d'obstacles. Nous étions 12 sur ce projet, entre programmeurs, graphistes et sound designers.<br><br>
                 <li> 2024 : Sokoban</li> Il s'agit d'un jeu de puzzle réalisé en équipe de 5.<br><br>
                 <li> 2023 : Shmup</li> Mon premier jeu scolaire, des vagues d'ennemis apparaissent, il faut tous les éliminer.<br><br>
-            </div>
+            </Text>
         </Section>
     </SectionsContainer>
     <SectionsContainer>
         <Section class="bgs-container">
-            <h2>Projets personnels</h2>
-            <li> 2022 : RokaBot</li> Un bot Discord, servant à automatiser certaines tâches sur des serveurs.<br><br>
-            <li> 2021 : Uno</li> Une virtualisation du jeu de société, avec multijoueur intégré et/ou IA adverses.<br><br>
-            <li> 2020 : BurgerSnake</li> Une version améliorée du célèbre Snake.<br><br>
+            <SousTitre>Projets personnels</SousTitre>
+            <Text>
+                <li> 2022 : RokaBot</li> Un bot Discord, servant à automatiser certaines tâches sur des serveurs.<br><br>
+                <li> 2021 : Uno</li> Une virtualisation du jeu de société, avec multijoueur intégré et/ou IA adverses.<br><br>
+                <li> 2020 : BurgerSnake</li> Une version améliorée du célèbre Snake.<br><br>
+            </Text>
             <div class="" id="bgs">
                 <Guy scale=".3" color="red" shape="square" />
                 <Guy scale=".3" color="orange" shape="square" />
@@ -83,12 +89,12 @@ import Layout from "../Layout.astro";
     </SectionsContainer>
     <SectionsContainer>
         <Section>
-            <h1>Contact</h1>
-            <div class="text">
+            <Title>Contact</Title>
+            <Text>
                 • E-mail : <a style = "color: black" href = "mailto:brian.baur.pro@gmail.com">brian.baur.pro@gmail.com</a><br>
                 • LinkedIn : <a style = "color: black" href="https://www.linkedin.com/in/brian-baur-aaa53a252/">https://www.linkedin.com/in/brian-baur-aaa53a252/</a><br>
                 • GitHub : <a style = "color: black" href="https://github.com/Rokacahuete/">https://github.com/Rokacahuete/</a><br>
-            </div>
+            </Text>
         </Section>
     </SectionsContainer>
 </Layout>
