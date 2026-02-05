@@ -27,6 +27,13 @@ import Layout from "../Layout.astro";
         </Section>
     </SectionsContainer>
     <SectionsContainer>
+        <Section>
+            <div class="bp-container" id="bp-container">
+                { Array.from({ length: 100 }).map(() => (<Guy color="red" scale=".2" />)) }
+            </div>
+        </Section>
+    </SectionsContainer>
+    <SectionsContainer>
         <Section style="text-align: left;">
             <h1>Parcours</h1>
             <div class = "text">
@@ -86,6 +93,7 @@ import Layout from "../Layout.astro";
     </SectionsContainer>
 </Layout>
 
+<!-- Top guys -->
 <style>
     :global(#top-guy-1) {
         left: 20%;
@@ -111,6 +119,7 @@ import Layout from "../Layout.astro";
     }
 </style>
 
+<!-- Ping Pong -->
 <style>
     .ping-pong {
         position: relative;
@@ -155,6 +164,7 @@ import Layout from "../Layout.astro";
     }
 </style>
 
+<!-- Snake -->
 <style>
     :global(.page .bgs-container) {
         padding: 50px;
@@ -180,4 +190,46 @@ import Layout from "../Layout.astro";
     for (let i = 0; i < guys.length; i++) {
         guys[i].style.animationDelay = `-${8 - i * .35}s`;
     }
+</script>
+
+<!-- Ball pit -->
+<style>
+    @keyframes bp-ball-x {
+        from { left: -67px; }
+        to   { left: calc(100% - 93px); }
+    }
+    @keyframes bp-ball-y {
+        from { top: -82px; }
+        to   { top: 210px; }
+    }
+
+    .bp-container {
+        width: 100%;
+        height: 300px;
+    }
+
+    :global(.bp-container>*) {
+        position: absolute;
+        --time-x: 3s;
+        --time-y: 3s;
+
+        animation: bp-ball-x var(--time-x) alternate linear infinite, bp-ball-y var(--time-y) alternate linear infinite;
+    }
+</style>
+
+<script>
+    const bpContainer = document.getElementById("bp-container");
+
+    const minDuration = 2, maxDuration = 3;
+    const colors = ["red", "yellow", "blue", "green", "orange", "purple"];
+    bpContainer?.querySelectorAll<HTMLElement>(".guy-wrapper").forEach(guy => {
+        let guyColor = guy.querySelector(".guy");
+        if (guyColor) {
+            guyColor.classList.remove("red");
+            guyColor.classList.add(colors[Math.floor(Math.random() * colors.length)]);
+        }
+
+        guy.style.setProperty("--time-x", `${Math.random() * maxDuration + minDuration}s`);
+        guy.style.setProperty("--time-y", `${Math.random() * maxDuration + minDuration}s`);
+    });
 </script>
