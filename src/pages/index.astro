@@ -6,6 +6,7 @@ import Title from "../components/Title.astro";
 import SousTitre from "../components/SousTitre.astro";
 import Text from "../components/Text.astro";
 import Layout from "../Layout.astro";
+import Cloud from "../components/Cloud.astro";
 ---
 
 <Layout>
@@ -36,19 +37,19 @@ import Layout from "../Layout.astro";
             <Title>Mes competences</Title>
             <SousTitre>Langages de programmation</SousTitre>
             <div class="langages-container">
-                <div class="langage">Python</div>
-                <div class="langage">Java</div>
-                <div class="langage">JavaScript</div>
-                <div class="langage">HTML</div>
-                <div class="langage">CSS</div>
-                <div class="langage">PHP</div>
-                <div class="langage">Bash</div>
-                <div class="langage">PowerShell</div>
-                <div class="langage">C#</div>
-                <div class="langage">C++</div>
-                <div class="langage">Brainfuck</div>
-                <div class="langage">Vue</div>
-                <div class="langage">SQL</div>
+                <Cloud color="#3776AB" textcolor="white">Python</Cloud>
+                <Cloud color="#007396" textcolor="white">Java</Cloud>
+                <Cloud color="#F7DF1E" textcolor="black">JavaScript</Cloud>
+                <Cloud color="#E34F26" textcolor="white">HTML</Cloud>
+                <Cloud color="#1572B6" textcolor="white">CSS</Cloud>
+                <Cloud color="#777BB4" textcolor="white">PHP</Cloud>
+                <Cloud color="#512BD4" textcolor="white">C#</Cloud>
+                <Cloud color="#00599C" textcolor="white">C++</Cloud>
+                <Cloud color="#000000" textcolor="#00FF00">Brainfuck</Cloud>
+                <Cloud color="#4EAA25" textcolor="white">Bash</Cloud>
+                <Cloud color="#012456" textcolor="white">PowerShell</Cloud>
+                <Cloud color="#42B883" textcolor="white">Vue</Cloud>
+                <Cloud color="#4479A1" textcolor="white">SQL</Cloud>
             </div>
         </Section>
     </SectionsContainer>
@@ -196,6 +197,10 @@ import Layout from "../Layout.astro";
 <style>
     .langages-container {
         display: flex;
+        flex-wrap: wrap;
+        max-width: 90%;
+        margin-top: 35px;
+        justify-content: center;
         gap: 20px
     }
 </style>
@@ -267,5 +272,6 @@ import Layout from "../Layout.astro";
 
         guy.style.setProperty("--time-x", `${Math.random() * maxDuration + minDuration}s`);
         guy.style.setProperty("--time-y", `${Math.random() * maxDuration + minDuration}s`);
+        if (Math.random() < .5) guy.style.animationDirection = "alternate-reverse";
     });
 </script>

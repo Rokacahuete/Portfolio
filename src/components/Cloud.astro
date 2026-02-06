@@ -1,0 +1,62 @@
+---
+export interface Props {
+    color?: string;
+    textcolor?: string;
+}
+const { color, textcolor } = Astro.props;
+---
+
+<div class="cloud-container centered">
+    <!-- <div class="cloud2">
+        <div class="cloud" style=`--cloud-color: ${color ?? "white"};`>
+        </div>
+    </div> -->
+    <div class="cloud cloud-border">
+        <div class="cloud cloud-color" style=`--cloud-color: ${color ?? "white"};`>
+        </div>
+    </div>
+    <div class="cloud-text" style=`color: ${textcolor ?? "black"};`><slot /></div>
+</div>
+
+<style>
+    .cloud-container {
+        width: 50px;
+        height: 64px;
+        margin: 0px 80px 20px 0px;
+    }
+
+    .cloud-text {
+        color: black;
+        z-index: 1;
+        translate: 40px 30px;
+    }
+
+    .cloud {
+        box-sizing: border-box;
+        border-radius: 50%;
+        position: absolute;
+        background: var(--cloud-color);
+        box-shadow:
+           var(--cloud-color) 65px -15px 0 -5px, 
+           var(--cloud-color) 25px -25px, 
+           var(--cloud-color) 30px 10px, 
+           var(--cloud-color) 60px 15px 0 -10px, 
+           var(--cloud-color) 85px 5px 0 -5px;
+    }
+    .cloud-color {
+        left: 2px;
+        top: 2px;
+        height: 60px; width: 60px;
+    }
+    .cloud-border {
+        --cloud-color: black;
+        opacity: .8;
+        height: 64px; width: 64px;
+    }
+</style>
+
+<script>
+    document.querySelectorAll<HTMLElement>(".cloud-container").forEach(cloud => {
+        cloud.style.width = `${Math.random() * 50 + 40}px`;
+    });
+</script>
