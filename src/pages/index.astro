@@ -36,20 +36,24 @@ import Cloud from "../components/Cloud.astro";
         <Section>
             <Title>Mes competences</Title>
             <SousTitre>Langages de programmation</SousTitre>
-            <div class="langages-container">
-                <Cloud color="#3776AB" textcolor="white">Python</Cloud>
-                <Cloud color="#007396" textcolor="white">Java</Cloud>
-                <Cloud color="#F7DF1E" textcolor="black">JavaScript</Cloud>
-                <Cloud color="#E34F26" textcolor="white">HTML</Cloud>
-                <Cloud color="#1572B6" textcolor="white">CSS</Cloud>
-                <Cloud color="#777BB4" textcolor="white">PHP</Cloud>
-                <Cloud color="#512BD4" textcolor="white">C#</Cloud>
-                <Cloud color="#00599C" textcolor="white">C++</Cloud>
-                <Cloud color="#000000" textcolor="#00FF00">Brainfuck</Cloud>
-                <Cloud color="#4EAA25" textcolor="white">Bash</Cloud>
-                <Cloud color="#012456" textcolor="white">PowerShell</Cloud>
-                <Cloud color="#42B883" textcolor="white">Vue</Cloud>
-                <Cloud color="#4479A1" textcolor="white">SQL</Cloud>
+            <div class="langages-container" id="langages-container">
+                <Cloud color="#3776AB" textcolor="white" text="Python" onclicktext="Ma toute première expérience de programmation était en 2020, dans ma première générale, avec Python. J'avais déjà utilisé quelques outils de no code, tels que Scratch, mais Python est mon premier coup de coeur." id="default-skill" />
+                <Cloud color="#007396" textcolor="white" text="Java" onclicktext="J'ai découvert Java lors de ma première année de BTS. C'est le tout premier langage statiquement typé, c'est à dire avec des types bien définis, et c'était une révélation pour moi." />
+                <Cloud color="#F7DF1E" textcolor="black" text="JavaScript" onclicktext="Ah JavaScript. Tout à commencé en 2021, avec mon bot Discord. JavaScript est le premier langage que j'ai appris seul, et c'est aujourd'hui encore l'un de mes préférés. Que ce soit pour des projets web ou pour des serveurs avec NodeJs, c'est toujours avec grand plaisir que je crée un fichier en .js" />
+                <Cloud color="#E34F26" textcolor="white" text="HTML" onclicktext="HTML est la base de toute page web. Il permet de structurer les éléments, il est donc tout naturel que j'ai eu à l'utiliser dans mon BTS. Ce n'est pas forcément par plaisir, bien que, plus le temps passe, plus j'aborde ce langage avec confiance, surtout avec les nouveaux outils, tels qu'Astro." />
+                <Cloud color="#1572B6" textcolor="white" text="CSS" onclicktext="J'ai mis bien longtemps avant de comprendre et d'apprécier CSS. Ce langage permet de styliser les pages webs. J'ai eu beaucoup de mal au début, à utiliser toutes ces variables qui me semblaient totalement floues. Mais avec l'expérience, et avec la quantité de projets web que j'ai réalisé, il m'est désormais plaisant d'utiliser CSS." />
+                <Cloud color="#777BB4" textcolor="white" text="PHP" onclicktext="Je n'ai que très peu utilisé PHP, uniquement quelques mois au début de ma première année de BTS. C'est un langage avec lequel je n'ai que très peu accroché." />
+                <Cloud color="#512BD4" textcolor="white" text="C#" onclicktext="Pendant mes deux années à Isart, tous mes projets ont été réalisés en C#. Je m'y suis très vite attaché. Je voyais en C# un successeur au Java, aujourd'hui, c'est le langage avec lequel je préfère travailler." />
+                <Cloud color="#00599C" textcolor="white" text="C++" onclicktext="Je n'ai travaillé qu'un petit mois en C++, mais c'est suffisant pour savoir que c'est un langage que j'aimerais approfondir." />
+                <Cloud color="#000000" textcolor="#00FF00" text="Brainf" onclicktext="Ce n'est peut-être pas le langage de programmation qui a le plus d'utilité. Il est difficile et particulièrement illisible. Il n'y a que 8 caractères utilisables en bf, et pourtant, tout est possible avec. C'était donc un vrai défi de l'utiliser. Et au final, c'est probablement le langage qui m'aura le plus appris. Bien que ce soit le concept qui me donne le plus de maux de tête au monde, j'apprécie vraiment coder avec." />
+                <Cloud color="#4EAA25" textcolor="white" text="Bash" onclicktext="Pendant mon stage en 2023, j'ai découvert le bash. C'est un langage qui permet de contrôler et automatiser un système via des lignes de commandes. Par la suite, j'ai pu l'utiliser pour automatiser certaines choses sur mon pc perso." />
+                <Cloud color="#012456" textcolor="white" text="PowerShell" onclicktext="En 2023, dans mon stage, j'ai du traduire et améliorer un code bash en PowerShell. Je ne l'ai pas beaucoup utilisé ensuite." />
+                <Cloud color="#42B883" textcolor="white" text="Vue" onclicktext="Pour ma 2e année de BTS, en 2025, le Vue était le langage que nous utilisions pour structurer les pages web. Ce n'est pas mon option préférée, mais il propose de bonnes choses." />
+                <Cloud color="#4479A1" textcolor="white" text="SQL" onclicktext="SQL est un langage qui permet la gestion de bases de données. Je l'ai utilisé dans toutes mes études, car c'est un langage très utile et répandu. C'est très cool pour faire de grosses bases de données, même si je préfère json pour des petites." />
+            </div>
+            <div id="skills-text-container">
+                <SousTitre id="skills-title"></SousTitre>
+                <Text id="skills-text"></Text>
             </div>
         </Section>
     </SectionsContainer>
@@ -204,6 +208,20 @@ import Cloud from "../components/Cloud.astro";
         gap: 20px
     }
 </style>
+
+<script>
+    const skillsTitle = document.getElementById("skills-title");
+    const skillsText = document.getElementById("skills-text");
+    
+    document.getElementById("langages-container")?.querySelectorAll<HTMLElement>(".cloud-container").forEach(cloud => cloud.addEventListener("click", () => ChangeSkill(cloud)));
+
+    ChangeSkill(document.getElementById("default-skill"));
+    function ChangeSkill(cloud: HTMLElement | null) {
+        if (!skillsText || !skillsTitle || !cloud) return;
+        skillsTitle.innerHTML = cloud.dataset.text ?? "";
+        skillsText.innerHTML = cloud.dataset.onclicktext ?? "";
+    }
+</script>
 
 <!-- Snake -->
 <style>

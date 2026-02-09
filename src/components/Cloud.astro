@@ -2,20 +2,20 @@
 export interface Props {
     color?: string;
     textcolor?: string;
+    text?: string;
+    onclicktext?: string;
+    id?: string;
 }
-const { color, textcolor } = Astro.props;
+const { color, textcolor, text, onclicktext, id } = Astro.props;
 ---
 
-<div class="cloud-container centered">
-    <!-- <div class="cloud2">
-        <div class="cloud" style=`--cloud-color: ${color ?? "white"};`>
-        </div>
-    </div> -->
+<div class="cloud-container centered" data-onclicktext={onclicktext ?? ""} data-text={text ?? ""} id={id ?? ""}>
+    <div class="cloud-area"></div>
     <div class="cloud cloud-border">
         <div class="cloud cloud-color" style=`--cloud-color: ${color ?? "white"};`>
         </div>
     </div>
-    <div class="cloud-text" style=`color: ${textcolor ?? "black"};`><slot /></div>
+    <div class="cloud-text" style=`color: ${textcolor ?? "black"};`>{text ?? ""}</div>
 </div>
 
 <style>
@@ -23,6 +23,19 @@ const { color, textcolor } = Astro.props;
         width: 50px;
         height: 64px;
         margin: 0px 80px 20px 0px;
+        transition: transform .2s;
+        pointer-events: none;
+    }
+    .cloud-container:has(.cloud-area:hover) {
+        transform: scale(1.1);
+    }
+
+    .cloud-area {
+        position: absolute;
+        translate: 40px -25px;
+        height: 100px;
+        width: 140px;
+        pointer-events: all;
     }
 
     .cloud-text {

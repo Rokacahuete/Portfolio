@@ -1,13 +1,14 @@
 ---
-
+const { id } = Astro.props;
 ---
 
-<p>
+<p id={id ?? ""}>
     <slot />
 </p>
 
 <style>
 	p {
   		font-family: "Comic Sans MS", sans-serif;
+		margin: 0px 50px 10px 50px;
 	}
 </style>
