@@ -7,63 +7,28 @@ import SousTitre from "../components/SousTitre.astro";
 import Text from "../components/Text.astro";
 import Layout from "../Layout.astro";
 import Cloud from "../components/Cloud.astro";
+
+import SectionApropos from "../sections/apropos.astro";
+import SectionPingPong from "../sections/pingpong.astro";
+import SectionSkills from "../sections/skills.astro";
+import SectionBallPit from "../sections/ballpit.astro";
 ---
 
 <Layout>
     <Guy shape="square" color="green" id="top-guy-1" />
     <Guy shape="circle" color="orange" id="top-guy-2" />
     <SectionsContainer>
-        <Section>
-            <Title>A Propos de moi</Title>
-            <SousTitre>Qui suis-je ?</SousTitre>
-            <Text>
-                Bonjour. Je suis Brian.<br>
-                Je suis passionné par la programmation, depuis maintenant plusieurs années. J'aime imaginer et structurer des projets qui résolvent de vrais problèmes... ou pas, tant que je peux me chalenger !<br>
-                Je vous invite, via ce présent portfolio, à découvrir mon parcours, mon univers, et qui je suis.<br>
-            </Text>
-        </Section>
+        <SectionApropos />
     </SectionsContainer>
     <SectionsContainer>
-        <Section>
-            <div class="ping-pong">
-                <Guy shape="capsule" size="300px" color="blue" target="ball" id="player-1" />
-                <Guy shape="circle" color="yellow" scale=".2" id="ball" />
-                <Guy shape="capsule" size="300px" color="red" target="ball" id="player-2" />
-            </div>
-        </Section>
+        <SectionPingPong />
     </SectionsContainer>
     <SectionsContainer>
-        <Section>
-            <Title>Mes competences</Title>
-            <SousTitre>Langages de programmation</SousTitre>
-            <div class="langages-container" id="langages-container">
-                <Cloud color="#3776AB" textcolor="white" text="Python" onclicktext="Ma toute première expérience de programmation était en 2020, dans ma première générale, avec Python. J'avais déjà utilisé quelques outils de no code, tels que Scratch, mais Python est mon premier coup de coeur." id="default-skill" />
-                <Cloud color="#007396" textcolor="white" text="Java" onclicktext="J'ai découvert Java lors de ma première année de BTS. C'est le tout premier langage statiquement typé, c'est à dire avec des types bien définis, et c'était une révélation pour moi." />
-                <Cloud color="#F7DF1E" textcolor="black" text="JavaScript" onclicktext="Ah JavaScript. Tout à commencé en 2021, avec mon bot Discord. JavaScript est le premier langage que j'ai appris seul, et c'est aujourd'hui encore l'un de mes préférés. Que ce soit pour des projets web ou pour des serveurs avec NodeJs, c'est toujours avec grand plaisir que je crée un fichier en .js" />
-                <Cloud color="#E34F26" textcolor="white" text="HTML" onclicktext="HTML est la base de toute page web. Il permet de structurer les éléments, il est donc tout naturel que j'ai eu à l'utiliser dans mon BTS. Ce n'est pas forcément par plaisir, bien que, plus le temps passe, plus j'aborde ce langage avec confiance, surtout avec les nouveaux outils, tels qu'Astro." />
-                <Cloud color="#1572B6" textcolor="white" text="CSS" onclicktext="J'ai mis bien longtemps avant de comprendre et d'apprécier CSS. Ce langage permet de styliser les pages webs. J'ai eu beaucoup de mal au début, à utiliser toutes ces variables qui me semblaient totalement floues. Mais avec l'expérience, et avec la quantité de projets web que j'ai réalisé, il m'est désormais plaisant d'utiliser CSS." />
-                <Cloud color="#777BB4" textcolor="white" text="PHP" onclicktext="Je n'ai que très peu utilisé PHP, uniquement quelques mois au début de ma première année de BTS. C'est un langage avec lequel je n'ai que très peu accroché." />
-                <Cloud color="#512BD4" textcolor="white" text="C#" onclicktext="Pendant mes deux années à Isart, tous mes projets ont été réalisés en C#. Je m'y suis très vite attaché. Je voyais en C# un successeur au Java, aujourd'hui, c'est le langage avec lequel je préfère travailler." />
-                <Cloud color="#00599C" textcolor="white" text="C++" onclicktext="Je n'ai travaillé qu'un petit mois en C++, mais c'est suffisant pour savoir que c'est un langage que j'aimerais approfondir." />
-                <Cloud color="#000000" textcolor="#00FF00" text="Brainf" onclicktext="Ce n'est peut-être pas le langage de programmation qui a le plus d'utilité. Il est difficile et particulièrement illisible. Il n'y a que 8 caractères utilisables en bf, et pourtant, tout est possible avec. C'était donc un vrai défi de l'utiliser. Et au final, c'est probablement le langage qui m'aura le plus appris. Bien que ce soit le concept qui me donne le plus de maux de tête au monde, j'apprécie vraiment coder avec." />
-                <Cloud color="#4EAA25" textcolor="white" text="Bash" onclicktext="Pendant mon stage en 2023, j'ai découvert le bash. C'est un langage qui permet de contrôler et automatiser un système via des lignes de commandes. Par la suite, j'ai pu l'utiliser pour automatiser certaines choses sur mon pc perso." />
-                <Cloud color="#012456" textcolor="white" text="PowerShell" onclicktext="En 2023, dans mon stage, j'ai du traduire et améliorer un code bash en PowerShell. Je ne l'ai pas beaucoup utilisé ensuite." />
-                <Cloud color="#42B883" textcolor="white" text="Vue" onclicktext="Pour ma 2e année de BTS, en 2025, le Vue était le langage que nous utilisions pour structurer les pages web. Ce n'est pas mon option préférée, mais il propose de bonnes choses." />
-                <Cloud color="#4479A1" textcolor="white" text="SQL" onclicktext="SQL est un langage qui permet la gestion de bases de données. Je l'ai utilisé dans toutes mes études, car c'est un langage très utile et répandu. C'est très cool pour faire de grosses bases de données, même si je préfère json pour des petites." />
-            </div>
-            <div id="skills-text-container">
-                <SousTitre id="skills-title"></SousTitre>
-                <Text id="skills-text"></Text>
-            </div>
-        </Section>
+        <SectionSkills />
     </SectionsContainer>
-    <SectionsContainer>
-        <Section>
-            <div class="bp-container" id="bp-container">
-                { Array.from({ length: 100 }).map(() => (<Guy color="red" scale=".2" />)) }
-            </div>
-        </Section>
-    </SectionsContainer>
+    <!-- <SectionsContainer>
+        <SectionBallPit />
+    </SectionsContainer> -->
     <SectionsContainer>
         <Section style="text-align: left;">
             <Title>Parcours</Title>
@@ -152,77 +117,6 @@ import Cloud from "../components/Cloud.astro";
     }
 </style>
 
-<!-- Ping Pong -->
-<style>
-    .ping-pong {
-        position: relative;
-        width: 100%;
-        height: 300px;
-        background-color: rgba(0, 0, 0, 0.521);
-        margin-block: 50px 75px;
-        border: 2px solid var(--border-color);
-    }
-
-    @keyframes ball-x {
-        from { left: 64px; }
-        to   { left: calc(100% - 225px); }
-    }
-    @keyframes ball-y {
-        from { top: -82px; }
-        to   { top: 188px; }
-    }
-    :global(.ping-pong #ball) {
-        left: calc(50% - 93px);
-        top: 0;
-        
-        animation: ball-y 1.5s linear infinite alternate, ball-x 3.4677138s linear infinite alternate;
-    }
-
-    @keyframes player-y {
-        from { top: -90px; }
-        to   { top: -10px; }
-    }
-    :global(.ping-pong #player-1) {
-        left: 0;
-
-        animation: player-y 2s linear infinite alternate;
-        animation-delay: .5s;
-    }
-
-    :global(.ping-pong #player-2) {
-        left: calc(100% - 135px);
-
-        animation: player-y 2s linear infinite alternate;
-        animation-delay: 2.5s;
-    }
-</style>
-
-<!-- Skills -->
-<style>
-    .langages-container {
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 90%;
-        margin-top: 35px;
-        justify-content: center;
-        gap: 20px
-    }
-</style>
-
-<script>
-    const skillsTitle = document.getElementById("skills-title");
-    const skillsText = document.getElementById("skills-text");
-    
-    document.getElementById("langages-container")?.querySelectorAll<HTMLElement>(".cloud-container").forEach(cloud => cloud.addEventListener("click", () => ChangeSkill(cloud)));
-
-    ChangeSkill(document.getElementById("default-skill"));
-    function ChangeSkill(cloud: HTMLElement | null) {
-        if (!skillsText || !skillsTitle || !cloud) return;
-        skillsTitle.innerHTML = cloud.dataset.text ?? "";
-        skillsText.innerHTML = cloud.dataset.onclicktext ?? "";
-    }
-</script>
-
 <!-- Snake -->
 <style>
     :global(.page .bgs-container) {
@@ -249,47 +143,4 @@ import Cloud from "../components/Cloud.astro";
     for (let i = 0; i < guys.length; i++) {
         guys[i].style.animationDelay = `-${8 - i * .35}s`;
     }
-</script>
-
-<!-- Ball pit -->
-<style>
-    @keyframes bp-ball-x {
-        from { left: -67px; }
-        to   { left: calc(100% - 93px); }
-    }
-    @keyframes bp-ball-y {
-        from { top: -82px; }
-        to   { top: 210px; }
-    }
-
-    .bp-container {
-        width: 100%;
-        height: 300px;
-    }
-
-    :global(.bp-container>*) {
-        position: absolute;
-        --time-x: 3s;
-        --time-y: 3s;
-
-        animation: bp-ball-x var(--time-x) alternate linear infinite, bp-ball-y var(--time-y) alternate linear infinite;
-    }
-</style>
-
-<script>
-    const bpContainer = document.getElementById("bp-container");
-
-    const minDuration = 2, maxDuration = 3;
-    const colors = ["red", "yellow", "blue", "green", "orange", "purple"];
-    bpContainer?.querySelectorAll<HTMLElement>(".guy-wrapper").forEach(guy => {
-        let guyColor = guy.querySelector(".guy");
-        if (guyColor) {
-            guyColor.classList.remove("red");
-            guyColor.classList.add(colors[Math.floor(Math.random() * colors.length)]);
-        }
-
-        guy.style.setProperty("--time-x", `${Math.random() * maxDuration + minDuration}s`);
-        guy.style.setProperty("--time-y", `${Math.random() * maxDuration + minDuration}s`);
-        if (Math.random() < .5) guy.style.animationDirection = "alternate-reverse";
-    });
 </script>
