@@ -9,8 +9,10 @@ import Layout from "../Layout.astro";
 import Cloud from "../components/Cloud.astro";
 
 import SectionApropos from "../sections/apropos.astro";
-import SectionPingPong from "../sections/pingpong.astro";
 import SectionSkills from "../sections/skills.astro";
+import SectionParcours from "../sections/parcours.astro";
+
+import SectionPingPong from "../sections/pingpong.astro";
 import SectionBallPit from "../sections/ballpit.astro";
 ---
 
@@ -30,23 +32,7 @@ import SectionBallPit from "../sections/ballpit.astro";
         <SectionBallPit />
     </SectionsContainer> -->
     <SectionsContainer>
-        <Section style="text-align: left;">
-            <Title>Parcours</Title>
-            <SousTitre>Mon parcours</SousTitre>
-            <Text>
-                <li> 2025-2026 : 2e année de BTS SIO au Lycée Geoffroy Saint-Hilaire d'Étampes</li>
-                Après une pause de deux ans, j'ai ressenti le besoin de finir mon apprentissage dans le développement web. L'expérience acquise à Isart m'a permis d'encore plus apprécier ce que je fais dans ce BTS.<br><br>
-                <li> 2023-2025 : Game Design & Programming à Isart DIGITAL à Paris</li>
-                Deux ans. C'est le temps passé à Isart. J'y ai beaucoup appris, de part les projets orientés jeux vidéo, à comprendre l'utilisateur, et à lui faire comprendre l'objectif d'une application. Je pense qu'il s'agit de la meilleure expérience pour réaliser les meilleures applications.<br><br>
-                <li> 2022-2023 : 1ere année de BTS SIO dans le même lycée</li>
-                En sortant du Bac, je savais que je voulais faire de la programmation. En attendant de pouvoir suivre la formation de mes rêves, le BTS SIO était la voie la plus évidente pour continuer ma passion.<br><br>
-                <li> 2022 : Bac général, options Maths et NSI</li>
-                S'il y a bien une étape importante dans ma vie, c'est le Bac, en particulier l'option NSI. C'est ici que j'ai découvert la programmation, et depuis, je ne peux plus m'en passer.<br><br>
-                <li> Stages et expériences :</li>
-                - 2025 : Brasserie Morel &gt; Réalisation d'un site web en HTML / CSS / JS<br>
-                - 2023 : O Fil Des Sens & MDA &gt; Réalisation de deux sites internet avec WordPress<br><br>
-            </Text>
-        </Section>
+        <SectionParcours />
         <Section style="text-align: left;">
             <Title>Projets</Title>
             <SousTitre>Projets BTS SIO</SousTitre>

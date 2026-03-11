@@ -1,13 +1,13 @@
 ---
-const { id } = Astro.props;
+const { class: classList, id } = Astro.props;
 ---
 
-<p id={id ?? ""}>
+<p class=`text ${classList}` id={id ?? ""}>
     <slot />
 </p>
 
 <style>
-	p {
+	.text {
   		font-family: "Comic Sans MS", sans-serif;
 		margin: 0px 50px 10px 50px;
 	}
