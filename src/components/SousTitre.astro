@@ -2,12 +2,12 @@
 const { id } = Astro.props;
 ---
 
-<h2 id={id ?? ""}>
+<h2 class="sous-titre" id={id ?? ""}>
     <slot />
 </h2>
 
 <style>
-	h2 {
+	.sous-titre {
   		font-family: "Comic Sans MS", sans-serif;
         margin: 0 75px;
 	}

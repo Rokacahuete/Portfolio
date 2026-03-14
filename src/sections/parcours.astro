@@ -6,47 +6,55 @@ import Title from "../components/Title.astro";
 ---
 
 <Section>
-    <div class="dropdown centered" onclick="Toggle('2025:bts');">
-        <Title>2025-2026 : BTS SIO</Title>
+    <Title>Mon parcours</Title>
+    <div class="dropdown centered">
+        <SousTitre>2025-2026 : BTS SIO</SousTitre>
         <Text class="hide" id="2025:bts">
             Après une pause de deux ans, j'ai ressenti le besoin de finir mon apprentissage dans le développement web. L'expérience acquise à Isart m'a permis d'encore plus apprécier ce que je fais dans ce BTS.
         </Text>
+        <div class="parcours-switch-button" data-id="2025:bts">v</div>
     </div>
-    <div class="dropdown centered" onclick="Toggle('2023:gdp');">
-        <Title>2023-2025 : GDP Isart</Title>
+    <div class="dropdown centered">
+        <SousTitre>2023-2025 : GDP Isart</SousTitre>
         <Text class="hide" id="2023:gdp">
             Deux ans. C'est le temps passé à Isart, en Game Design & Programming. J'y ai beaucoup appris, de part les projets orientés jeux vidéo, à comprendre l'utilisateur, et à lui faire comprendre l'objectif d'une application. Je pense qu'il s'agit de la meilleure expérience pour réaliser les meilleures applications.
         </Text>
+        <div class="parcours-switch-button" data-id="2023:gdp">v</div>
     </div>
-    <div class="dropdown centered" onclick="Toggle('2022:bts');">
-        <Title>2022-2023 : BTS SIO</Title>
+    <div class="dropdown centered">
+        <SousTitre>2022-2023 : BTS SIO</SousTitre>
         <Text class="hide" id="2022:bts">
             En sortant du Bac, je savais que je voulais faire de la programmation. En attendant de pouvoir suivre la formation de mes rêves, le BTS SIO était la voie la plus évidente pour continuer ma passion.
         </Text>
+        <div class="parcours-switch-button" data-id="2022:bts">v</div>
     </div>
-    <div class="dropdown centered" onclick="Toggle('2022:bac');">
-        <Title>2022 : Bac</Title>
+    <div class="dropdown centered">
+        <SousTitre>2022 : Bac</SousTitre>
         <Text class="hide" id="2022:bac">
             S'il y a bien une étape importante dans ma vie, c'est le Bac, en particulier l'option NSI. C'est ici que j'ai découvert la programmation, et depuis, je ne peux plus m'en passer. Par ailleurs, j'ai toujours adoré les maths. C'est pourquoi, c'était tout naturellement ma seconde option.
         </Text>
+        <div class="parcours-switch-button" data-id="2022:bac">v</div>
     </div>
-    <div class="dropdown centered" onclick="Toggle('2026-stage');">
-        <Title>2026 : Stage ACE</Title>
+    <div class="dropdown centered">
+        <SousTitre>2026 : Stage ACE</SousTitre>
         <Text class="hide" id="2026-stage">
             J'ai entièrement développé et déployé le site internet d'ACE, une PME spécialisée dans le transport logistique. 
         </Text>
+        <div class="parcours-switch-button" data-id="2026-stage">v</div>
     </div>
-    <div class="dropdown centered" onclick="Toggle('2025:bm');">
-        <Title>2025 : Brasserie Morel</Title>
+    <div class="dropdown centered">
+        <SousTitre>2025 : Brasserie Morel</SousTitre>
         <Text class="hide" id="2025:bm">
             Ma première mission en indépendant. J'ai réalisé le projet web d'une brasserie, ce qui comprend la représentation en ligne jusqu'aux réservations.
         </Text>
+        <div class="parcours-switch-button" data-id="2025:bm">v</div>
     </div>
-    <div class="dropdown centered" onclick="Toggle('2023-stage');">
-        <Title>2023 : Stage</Title>
+    <div class="dropdown centered">
+        <SousTitre>2023 : Stage</SousTitre>
         <Text class="hide" id="2023-stage">
             Lors de mon premier stage en développement web, j'ai créé les sites internet de deux entreprises avec WordPress.
         </Text>
+        <div class="parcours-switch-button" data-id="2023-stage">v</div>
     </div>
 </Section>
 
@@ -58,19 +66,36 @@ import Title from "../components/Title.astro";
         user-select: none;
     }
 
+    .parcours-switch-button {
+        --flip: 1;
+        font-family: 'copyduck', sans-serif;
+        font-size: 25px;
+
+        transform: scale(var(--hover, 1)) scaleY(var(--flip));
+        
+        transition: transform .3s;
+    }
+    .parcours-switch-button:hover {
+        --hover: 1.2;
+    }
+    .parcours-switch-button.switched {
+        --flip: -1;
+    }
+
     :global(.dropdown .text.hide) {
         max-height: 0px;
         overflow: hidden;
     }
 
     :global(.dropdown .text) {
-        max-height: 1000px;
+        max-height: 300px;
         transition: max-height .3s;
     }
 </style>
 
 <script>
-    window.Toggle = function Toggle(id:string) {
-        document.getElementById(id)?.classList.toggle("hide");
-    }
+    document.querySelectorAll<HTMLElement>(".parcours-switch-button").forEach(button => button.onclick = () => {
+        document.getElementById(button.dataset.id ?? "")?.classList.toggle("hide");
+        button.classList.toggle("switched");
+    });
 </script>
