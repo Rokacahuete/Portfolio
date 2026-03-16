@@ -1,33 +1,50 @@
 ---
 import Section from "../components/Section.astro";
+import SousTitre from "../components/SousTitre.astro";
 import Title from "../components/Title.astro";
 ---
 
 <Section>
     <div id="veille"></div>
     <Title>Veille</Title>
-    Batteries Sodium-Ion
-    https://www.sciencedirect.com/science/article/abs/pii/S2352152X25022030
-    https://pubs.rsc.org/en/content/articlehtml/2025/ra/d5ra02042E
-    https://www.reuters.com/technology/chinese-battery-maker-catl-launches-second-generation-fast-charging-battery-2025-04-21/
-    https://www.livescience.com/technology/electric-vehicles/china-puts-a-sodium-ion-battery-into-an-ev-for-the-first-time-it-can-drive-248-miles-on-a-single-charge
+    <SousTitre>Batteries Sodium-Ion</SousTitre>
+    <div class="articles">
+        <a href="https://www.sciencedirect.com/science/article/abs/pii/S2352152X25022030" target="_blank">Article 1</a>
+        <a href="https://pubs.rsc.org/en/content/articlehtml/2025/ra/d5ra02042E" target="_blank">Article 2</a>
+        <a href="https://www.reuters.com/technology/chinese-battery-maker-catl-launches-second-generation-fast-charging-battery-2025-04-21/" target="_blank">Article 3</a>
+        <a href="https://www.livescience.com/technology/electric-vehicles/china-puts-a-sodium-ion-battery-into-an-ev-for-the-first-time-it-can-drive-248-miles-on-a-single-charge" target="_blank">Article 4</a>
+    </div>
+        
+    <SousTitre>Batteries à Anodes Silicium</SousTitre>
+    <div class="articles">
+        <a href="https://nmlett.org/index.php/nml/article/view/1676" target="_blank">Article 1</a>
+        <a href="https://ace.ewapub.com/article/view/27924" target="_blank">Article 2</a>
+        <a href="https://pubs.acs.org/doi/10.1021/acsmaterialslett.3c00253" target="_blank">Article 3</a>
+        <a href="https://www.sciencedirect.com/science/article/abs/pii/S2405829725005811" target="_blank">Article 4</a>
+        <a href="https://pubs.rsc.org/pt-br/content/articlehtml/2025/ra/d5ra05126f" target="_blank">Article 5</a>
+        <a href="https://www.sciencedirect.com/science/article/abs/pii/S2590116823000851" target="_blank">Article 6</a>
+    </div>
 
-    Batteries à Anodes Silicium
-    https://nmlett.org/index.php/nml/article/view/1676
-    https://ace.ewapub.com/article/view/27924
-    https://pubs.acs.org/doi/10.1021/acsmaterialslett.3c00253
-    https://www.sciencedirect.com/science/article/abs/pii/S2405829725005811
-    https://pubs.rsc.org/pt-br/content/articlehtml/2025/ra/d5ra05126f
-    https://www.sciencedirect.com/science/article/abs/pii/S2590116823000851
+    <SousTitre>Solid-State Batteries (General / EV)</SousTitre>
+    <div class="articles">
+        <a href="https://pubs.acs.org/doi/full/10.1021/jacs.5c06058" target="_blank">Article 1</a>
+        <a href="https://www.reuters.com/markets/commodities/stellantis-validates-factorial-energy-solid-state-battery-cells-2025-04-24/" target="_blank">Article 2</a>
+        <a href="https://www.theverge.com/news/654768/stellantis-solid-state-batteries-charge-speed-temperature-factorial" target="_blank">Article 3</a>
+        <a href="https://www.theverge.com/transportation/891310/donut-lab-solid-state-battery-supercapacitor-test-result" target="_blank">Article 4</a>
+        <a href="https://www.washingtonpost.com/climate-solutions/2026/01/18/donut-lab-solid-state-battery/" target="_blank">Article 5</a>
+        <a href="https://www.techradar.com/vehicle-tech/hybrid-electric-vehicles/chinese-researchers-develop-the-first-semi-solid-state-ev-battery-with-a-massive-620-mile-range-but-questions-remain" target="_blank">Article 6</a>
+    </div>
 
-    Solid-State Batteries (General / EV)
-    https://pubs.acs.org/doi/full/10.1021/jacs.5c06058
-    https://www.reuters.com/markets/commodities/stellantis-validates-factorial-energy-solid-state-battery-cells-2025-04-24/
-    https://www.theverge.com/news/654768/stellantis-solid-state-batteries-charge-speed-temperature-factorial
-    https://www.theverge.com/transportation/891310/donut-lab-solid-state-battery-supercapacitor-test-result
-    https://www.washingtonpost.com/climate-solutions/2026/01/18/donut-lab-solid-state-battery/
-    https://www.techradar.com/vehicle-tech/hybrid-electric-vehicles/chinese-researchers-develop-the-first-semi-solid-state-ev-battery-with-a-massive-620-mile-range-but-questions-remain
-
-    Articles de synthèse & comparatifs multi-technos
-    https://pubs.rsc.org/eu/content/articlehtml/2025/su/d5su00127G
+    <SousTitre>Articles de synthèse & comparatifs multi-technos</SousTitre>
+    <div class="articles">
+        <a href="https://pubs.rsc.org/eu/content/articlehtml/2025/su/d5su00127G" target="_blank">Article</a>
+    </div>
 </Section>
+
+<style>
+    .articles {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+</style>
