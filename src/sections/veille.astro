@@ -1,44 +1,58 @@
 ---
 import Section from "../components/Section.astro";
 import SousTitre from "../components/SousTitre.astro";
+import Text from "../components/Text.astro";
 import Title from "../components/Title.astro";
 ---
 
 <Section>
     <div id="veille"></div>
     <Title>Veille</Title>
+    <SousTitre>Batteries au Lithium (technologie majoritairement répandue)</SousTitre>
+    <Text left>
+        &emsp;Aujourd'hui, lorsque l'on parle de batterie, ou plus généralement de stockage d'énergie, on fait souvent référence aux batteries lithium. Bien que cette technologie offre beaucoup d'avantages, de nombreux problèmes perdures, ce qui pousse l'humanité à continuer ses recherches.<br>
+        Bien que cette technologie ait grandement aidé l'humanité jusqu'ici, on observe désormais ses limites :<br>
+        &emsp; - Autonomie insufisante pour des appareils très énergivores (avion, camion, ...)<br>
+        &emsp; - La balance entre charge rapide et durée de vie, car il est possible de recharger très rapidement ces batteries, mais cela empiète sur sa longévité<br>
+        &emsp; - Perte de capacité avec les cicles de charge<br>
+        &emsp; - Utilise des ressources rares, des matières non renouvellables, et parfois géopolitiquement sensibles (lithium, nickel, ...)<br>
+        &emsp; - Qui dit exploitation de ressources, dit fort impact carbone<br>
+        &emsp; - Risque d'embrasement en cas de contact avec l'air (choc, mauvaises conditions de stockage, ...)<br>
+        Rassurez-vous, il s'agit principalement de limitations, et non de réels dangers. Mais ça suffit pour se poser la question : existe-t-il de meilleures solutions pour stocker l'énergie ?
+    </Text>
     <SousTitre>Batteries Sodium-Ion</SousTitre>
-    <div class="articles">
-        <a href="https://www.sciencedirect.com/science/article/abs/pii/S2352152X25022030" target="_blank">Article 1</a>
-        <a href="https://pubs.rsc.org/en/content/articlehtml/2025/ra/d5ra02042E" target="_blank">Article 2</a>
-        <a href="https://www.reuters.com/technology/chinese-battery-maker-catl-launches-second-generation-fast-charging-battery-2025-04-21/" target="_blank">Article 3</a>
-        <a href="https://www.livescience.com/technology/electric-vehicles/china-puts-a-sodium-ion-battery-into-an-ev-for-the-first-time-it-can-drive-248-miles-on-a-single-charge" target="_blank">Article 4</a>
-    </div>
+    <a href="https://www.sciencedirect.com/science/article/abs/pii/S2352152X25022030" target="_blank">Analyse statistiques mondiales (2025)</a>
+    <a href="https://pubs.rsc.org/en/content/articlehtml/2025/ra/d5ra02042E" target="_blank">Comparaison batteries sodium et lithium (2025)</a>
+    <a href="https://www.reuters.com/technology/chinese-battery-maker-catl-launches-second-generation-fast-charging-battery-2025-04-21/" target="_blank">Annonce industrielle : technologie prête pour des applications commerciales + batteries plus rapides à charger (2025)</a>
+    <a href="https://www.livescience.com/technology/electric-vehicles/china-puts-a-sodium-ion-battery-into-an-ev-for-the-first-time-it-can-drive-248-miles-on-a-single-charge" target="_blank">Premier véhicule électrique équipé d'une batterie au sodium (2026)</a>
+    <Text>
+        &emsp;Les batteries au sodium n'ont pas pour ambition de remplacer les batteries au lithium. Il ne s'agit là que d'une alternative, moins haut de gamme, mais qui a l'avantage d'être moins cher et plus robuste. Son principal problème est sa plus faible autonomie. Mais il s'agit d'une technologie qui évolue vite. Très vite. En effet, il ne s'est écoulé que 5 ans, entre les premières expériences en laboratoire, et l'utilisation industrielle.<br>
+        &emsp;Il s'agit donc d'une technologie stratégique. Le marché chinois l'a bien compris, en effet, la plupart des évolutions sur cette technologies, jusqu'à ses utilisations réelles, sont principalement côté Chine. Malgré une durée de fonctionnement avec une seule charge plus faible, cette technologie est idéal pour des appareils peu énergivores, comme de petits véhicules, et surtout moins chers.<br>
+    </Text>
         
     <SousTitre>Batteries à Anodes Silicium</SousTitre>
-    <div class="articles">
-        <a href="https://nmlett.org/index.php/nml/article/view/1676" target="_blank">Article 1</a>
-        <a href="https://ace.ewapub.com/article/view/27924" target="_blank">Article 2</a>
-        <a href="https://pubs.acs.org/doi/10.1021/acsmaterialslett.3c00253" target="_blank">Article 3</a>
-        <a href="https://www.sciencedirect.com/science/article/abs/pii/S2405829725005811" target="_blank">Article 4</a>
-        <a href="https://pubs.rsc.org/pt-br/content/articlehtml/2025/ra/d5ra05126f" target="_blank">Article 5</a>
-        <a href="https://www.sciencedirect.com/science/article/abs/pii/S2590116823000851" target="_blank">Article 6</a>
-    </div>
+    <a href="https://pubs.acs.org/doi/10.1021/acsmaterialslett.3c00253" target="_blank">Revue des progrès (2023)</a>
+    <a href="https://nmlett.org/index.php/nml/article/view/1676" target="_blank">Revue des techniques de stabilisation du silicium (2024)</a>
+    <a href="https://ace.ewapub.com/article/view/27924" target="_blank">Passer du prototype à la production industrielle (2025)</a>
+    <a href="https://pubs.rsc.org/pt-br/content/articlehtml/2025/ra/d5ra05126f" target="_blank">Défis et opportunités (2025)</a>
+    <Text>
+        &emsp;Le silicium permet d'améliorer les batteries au lithium. Ce qui est génial avec cette nouvelle technologie, c'est qu'elle apporte une amélioration réelle de l'autonomie des batteries, sans nécessité de revoir toute la chaine de production de ces dernières.<br>
+        &emsp;Pour preuve, c'est une technologie déjà utilisée dans l'électronique grand public, et c'est également en cours de transition vers l'automobile.<br>
+    </Text>
 
-    <SousTitre>Solid-State Batteries (General / EV)</SousTitre>
-    <div class="articles">
-        <a href="https://pubs.acs.org/doi/full/10.1021/jacs.5c06058" target="_blank">Article 1</a>
-        <a href="https://www.reuters.com/markets/commodities/stellantis-validates-factorial-energy-solid-state-battery-cells-2025-04-24/" target="_blank">Article 2</a>
-        <a href="https://www.theverge.com/news/654768/stellantis-solid-state-batteries-charge-speed-temperature-factorial" target="_blank">Article 3</a>
-        <a href="https://www.theverge.com/transportation/891310/donut-lab-solid-state-battery-supercapacitor-test-result" target="_blank">Article 4</a>
-        <a href="https://www.washingtonpost.com/climate-solutions/2026/01/18/donut-lab-solid-state-battery/" target="_blank">Article 5</a>
-        <a href="https://www.techradar.com/vehicle-tech/hybrid-electric-vehicles/chinese-researchers-develop-the-first-semi-solid-state-ev-battery-with-a-massive-620-mile-range-but-questions-remain" target="_blank">Article 6</a>
-    </div>
+    <SousTitre>Batteries à état solide</SousTitre>
+    <a href="https://pubs.acs.org/doi/full/10.1021/jacs.5c06058" target="_blank">Synthèse scientifique (2025)</a>
+    <a href="https://www.reuters.com/markets/commodities/stellantis-validates-factorial-energy-solid-state-battery-cells-2025-04-24/" target="_blank">Validation industrielle pour l'automobile par Stelantis (2025)</a>
+    <a href="https://www.theverge.com/news/654768/stellantis-solid-state-batteries-charge-speed-temperature-factorial" target="_blank">Rapidité de charge (2025)</a>
+    <a href="https://www.washingtonpost.com/climate-solutions/2026/01/18/donut-lab-solid-state-battery/" target="_blank">Difficultés industrielles (2024)</a>
+    <a href="https://www.techradar.com/vehicle-tech/hybrid-electric-vehicles/chinese-researchers-develop-the-first-semi-solid-state-ev-battery-with-a-massive-620-mile-range-but-questions-remain" target="_blank">Analyse critique (2026)</a>
+    <Text>
+        &emsp;Les batteries solides sont sans aucuns doutes la technologie la plus prométeuse en matière de stockage d'énergie. Elles offrent de réels gains, notamment en terme de sécurité, aucun lithium à l'état liquide donc pas de risque d'inflammation en cas de contact avec l'air, en terme de densité, donc plus de performance pour une même taille, et en terme de rapidité, avec des temps de charge très courts.<br>
+        &emsp;Malheureusement, c'est une technologie qui est aujourd'hui difficile à exploiter. Une utilisation industrielle à grande échelle est encore très compliquée, mais les avantages qu'elle apporte justifient largement le mérite de continuer la recherche sur cette voie.<br>
+    </Text>
 
     <SousTitre>Articles de synthèse & comparatifs multi-technos</SousTitre>
-    <div class="articles">
-        <a href="https://pubs.rsc.org/eu/content/articlehtml/2025/su/d5su00127G" target="_blank">Article</a>
-    </div>
+    <a href="https://pubs.rsc.org/eu/content/articlehtml/2025/su/d5su00127G" target="_blank">Comparaison globale des technologies émergentes</a>
 </Section>
 
 <style>

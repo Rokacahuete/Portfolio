@@ -1,8 +1,8 @@
 ---
-const { class: classList, id } = Astro.props;
+const { left, class: classList, id } = Astro.props;
 ---
 
-<p class=`text ${classList}` id={id ?? ""}>
+<p class=`text ${left ?? ""} ${classList}` id={id ?? ""}>
     <slot />
 </p>
 
@@ -10,5 +10,9 @@ const { class: classList, id } = Astro.props;
 	.text {
   		font-family: "Comic Sans MS", sans-serif;
 		margin: 0px 50px 10px 50px;
+	}
+
+	.left {
+		text-align: left;
 	}
 </style>
